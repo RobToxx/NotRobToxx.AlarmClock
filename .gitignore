@@ -1,0 +1,19 @@
+﻿# Build results
+bin/
+obj/
+
+# NuGet packages
+packages/
+
+# JetBrains Rider
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet package files
+*.nupkg
+*.snupkg
