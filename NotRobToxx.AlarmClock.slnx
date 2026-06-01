@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="NotRobToxx.AlarmClock/NotRobToxx.AlarmClock.csproj">
+    <Deploy/>
+  </Project>
+</Solution>
