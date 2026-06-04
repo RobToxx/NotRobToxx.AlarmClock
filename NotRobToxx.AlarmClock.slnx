@@ -1,5 +1,8 @@
 <Solution>
+  <Folder Name="/Docs/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="NotRobToxx.AlarmClock/NotRobToxx.AlarmClock.csproj">
-    <Deploy/>
+    <Deploy />
   </Project>
 </Solution>
