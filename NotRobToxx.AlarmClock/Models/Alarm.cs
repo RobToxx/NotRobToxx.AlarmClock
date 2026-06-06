@@ -8,6 +8,6 @@ namespace NotRobToxx.AlarmClock.Models {
         public bool Enabled { get; set; }
         public Schedule Schedule { get; set; }
         public byte RepeatCount { get; set; }
-        public TimeSpan RepeatInterval { get; set; }
+        public TimeSpan? RepeatInterval { get; set; }
     }
 }
