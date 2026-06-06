@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using NotRobToxx.AlarmClock.Models;
 
 namespace NotRobToxx.AlarmClock.Repositories {
     
     public class AlarmRepository {
         
-        private readonly Dictionary<Guid, Alarm> alarms = new();
+        private readonly Hashtable alarms = new();
         
         public AlarmRepository() {
             
@@ -31,7 +30,7 @@ namespace NotRobToxx.AlarmClock.Repositories {
 
             lock (this.syncRoot) {
 
-                if (this.alarms.ContainsKey(alarm.Id)) return false;
+                if (this.alarms.Contains(alarm.Id)) return false;
 
                 this.alarms.Add(alarm.Id, alarm);
                 return true;
@@ -42,7 +41,7 @@ namespace NotRobToxx.AlarmClock.Repositories {
 
             lock (this.syncRoot) {
 
-                if (!this.alarms.ContainsKey(id)) return false;
+                if (!this.alarms.Contains(id)) return false;
 
                 this.alarms.Remove(id);
                 return true;
@@ -54,7 +53,7 @@ namespace NotRobToxx.AlarmClock.Repositories {
 
             lock (this.syncRoot) {
 
-                if (!this.alarms.ContainsKey(alarm.Id)) return false;
+                if (!this.alarms.Contains(alarm.Id)) return false;
 
                 this.alarms[alarm.Id] = alarm;
                 return true;

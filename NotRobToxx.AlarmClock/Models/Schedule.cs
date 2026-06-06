@@ -21,7 +21,7 @@ namespace NotRobToxx.AlarmClock.Models {
         
         public ScheduleType Type { get; set; }
         public DateTime Occurrence { get; set; }
-        public WeekDays? Days { get; set; }
+        public WeekDays Days { get; set; }
         
         public bool TryGetNextOccurrence(DateTime now, out DateTime occurrence) {
 
@@ -68,12 +68,15 @@ namespace NotRobToxx.AlarmClock.Models {
 
             if (this.Occurrence.TimeOfDay < now.TimeOfDay) {
 
-                occurrence = now.Date.AddDays(1).Add(this.Occurrence.TimeOfDay);
+                occurrence = now.Date
+                             .AddDays(1)
+                             .Add(this.Occurrence.TimeOfDay);
 
                 return true;
             }
 
-            occurrence = now.Date .Add(this.Occurrence.TimeOfDay);
+            occurrence = now.Date
+                         .Add(this.Occurrence.TimeOfDay);
 
             return true;
         }
@@ -88,13 +91,19 @@ namespace NotRobToxx.AlarmClock.Models {
                 // NOTE: This variable name is a terrible pun and will not be renamed.
                 var candiDate = now.Date.AddDays(i);
 
-                var day = (WeekDays)(1 << (int)candiDate.DayOfWeek);
+                var day =
+                    (WeekDays)(1 << (int)candiDate.DayOfWeek);
 
-                if ((this.Days & day) == 0) continue;
+                if ((this.Days & day) == 0) {
+                    continue;
+                }
 
-                var time = candiDate.Add(this.Occurrence.TimeOfDay);
+                var time =
+                    candiDate.Add(this.Occurrence.TimeOfDay);
 
-                if (time < now) continue;
+                if (time < now) {
+                    continue;
+                }
 
                 occurrence = time;
 
