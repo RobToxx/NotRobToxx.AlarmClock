@@ -29,6 +29,7 @@
         <Compile Include="Program.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="Repositories\AlarmRepository.cs" />
+        <Compile Include="Requests\CreateAlarmRequest.cs" />
         <Compile Include="Services\AlarmService.cs" />
     </ItemGroup>
 
